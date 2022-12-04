@@ -1,0 +1,15 @@
+<%= form_tag(root_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ('Search')%>
+<% end %>
+
+<% if @response_body.present? %>
+  <% if @response_body.keys.include?('name') %>
+    <tr>
+      <td>Nickname: <%= @response_body['name'] %></td><br>
+      <td>Level: <%= @response_body['summonerLevel'] %></td>
+    </tr>
+  <% else %>
+    <%= 'Invocador não encontrado!' %>
+  <% end %>
+<% end %>
