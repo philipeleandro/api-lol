@@ -4,6 +4,6 @@ class RiotRequest
   end
 
   def self.rank(id)
-    Faraday.get("https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/#{id}")
+    Faraday.get("https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/#{id}?api_key=#{ENV['API_LOL']}")
   end
 end
