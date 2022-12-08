@@ -1,0 +1,10 @@
+<% if @account_info.present? %>
+  <% if @account_info.keys.include?('name') %>
+    <tr>
+      <td>Nickname: <%= @account_info['name'] %></td><br>
+      <td>Level: <%= @account_info['summonerLevel'] %></td><br>
+      <td>Soloq/Duo Rank: <%= @rank[0]['tier'] %> <%= @rank[0]['rank'] %> - <%= @rank[0]['leaguePoints'] %></td><br>
+      <td>Flex Rank: <%= @rank[1]['tier'] %> <%= @rank[1]['rank'] %> - <%= @rank[1]['leaguePoints'] %></td>
+    </tr>
+  <% end %>
+<% end %>
