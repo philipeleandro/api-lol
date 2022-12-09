@@ -7,4 +7,6 @@
       <td>Flex Rank: <%= @rank[1]['tier'] %> <%= @rank[1]['rank'] %> - <%= @rank[1]['leaguePoints'] %></td>
     </tr>
   <% end %>
+<% else %>
+  <%= link_to 'Voltar para o ínicio', root_path %>
 <% end %>
