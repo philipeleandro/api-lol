@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem 'faraday'
 
+gem 'simplecov', require: false, group: :test
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -67,4 +69,3 @@ group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
-
