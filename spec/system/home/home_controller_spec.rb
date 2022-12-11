@@ -10,6 +10,8 @@ describe 'User visits home' do
       expect(page).to have_content 'Nickname'
       expect(page).to have_content 'Soloq/Duo Rank'
       expect(page).to have_content 'Flex Rank'
+      expect(page).to have_content 'Histórico de Partida'
+      expect(page).to have_content('Lyord', count: 6)
       expect(current_path).to eq summoner_matches_path
     end
 
