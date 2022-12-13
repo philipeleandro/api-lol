@@ -2,64 +2,133 @@ require 'rails_helper'
 
 describe AccountLeagueOfLegends do
   describe '.return_info' do
-    it 'calls method to info account data' do
-      allow(described_class).to receive(:return_info).with('Lyord').and_call_original
+    context 'when nickname is valid' do
+      it 'calls method to info account data' do
+        allow(described_class).to receive(:return_info).with('Lyord').and_call_original
 
-      result = described_class.return_info('Lyord')
-      
-      expect(result.keys).to include 'id'
-      expect(result.keys).to include 'name'
-      expect(result.keys).to include 'summonerLevel'
+        result = described_class.return_info('Lyord')
+        
+        expect(result.keys).to include 'id'
+        expect(result.keys).to include 'name'
+        expect(result.keys).to include 'summonerLevel'
+      end
+
+      context 'when nickname is not valid' do
+        it 'returns a error message' do
+          allow(described_class).to receive(:return_info).with('Application testing').and_call_original
+  
+          result = described_class.return_info('Application testing')
+          
+          expect(result['status']['message']).to eq 'Data not found - summoner not found'
+          expect(result['status']['status_code']).to eq 404
+        end
+      end
     end
   end
 
   describe '.return_rank' do
-    let(:encrypted_summonerid) { 'AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA' }
+    context 'when encrypted_summonerid is valid' do
+      let(:encrypted_summonerid) { 'AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA' }
 
-    it 'calls method to info account rank' do
-      allow(described_class).to receive(:return_rank).with(encrypted_summonerid).and_call_original
+      it 'calls method to info account rank' do
+        allow(described_class).to receive(:return_rank).with(encrypted_summonerid).and_call_original
 
-      result = described_class.return_rank(encrypted_summonerid)
+        result = described_class.return_rank(encrypted_summonerid)
 
-      expect(result.first.keys).to include 'rank'
-      expect(result.first.keys).to include 'leaguePoints'
+        expect(result.first.keys).to include 'rank'
+        expect(result.first.keys).to include 'leaguePoints'
+      end
+    end
+
+    context 'when encrypted_summonerid is not valid' do
+      let(:encrypted_summonerid) { '1233456789798abcdefg' }
+
+      it 'returns a error message' do
+        allow(described_class).to receive(:return_rank).with(encrypted_summonerid).and_call_original
+
+        result = described_class.return_rank(encrypted_summonerid)
+
+        expect(result['status']['message']).to eq "Bad Request - Exception decrypting #{encrypted_summonerid}"
+        expect(result['status']['status_code']).to eq 400
+      end
     end
   end
 
   describe '.return_match_history' do
-    let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
+    context 'when puuid is valid' do
+      let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
 
-    it 'returs array with match id' do
-      allow(described_class).to receive(:return_match_history).with(puuid).and_return(['BR_TESTHISTORY'])
+      it 'returs array with match id' do
+        allow(described_class).to receive(:return_match_history).with(puuid).and_return(['BR_TESTHISTORY'])
 
-      response = described_class.return_match_history(puuid)
+        response = described_class.return_match_history(puuid)
 
-      expect(response).to eq ['BR_TESTHISTORY']
+        expect(response).to eq ['BR_TESTHISTORY']
+      end
+    end
+
+    context 'when puuid is not valid' do
+      let(:puuid) { '1233456789798abcdefg' }
+
+      it 'returns a error message' do
+        allow(described_class).to receive(:return_match_history).with(puuid).and_call_original
+
+        result = described_class.return_match_history(puuid)
+
+        expect(result['status']['message']).to eq "Bad Request - Exception decrypting #{puuid}"
+        expect(result['status']['status_code']).to eq 400
+      end
     end
   end
 
   describe '.return_summoner_name_by_puuid' do
-    let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
+    context 'when puuid is valid' do
+      let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
 
-    it 'returns summuner name' do
-      allow(described_class).to receive(:return_summoner_name_by_puuid).with(puuid).and_call_original
+      it 'returns summuner name' do
+        allow(described_class).to receive(:return_summoner_name_by_puuid).with(puuid).and_call_original
 
-      response = described_class.return_summoner_name_by_puuid(puuid)
+        response = described_class.return_summoner_name_by_puuid(puuid)
 
-      expect(response).to eq 'BlackHoot'
+        expect(response).to eq 'BlackHoot'
+      end
+    end
+
+    context 'when puuid is not valid' do
+      let(:puuid) { '123456789qwerty' }
+
+      it 'returns summuner name' do
+        allow(described_class).to receive(:return_summoner_name_by_puuid).with(puuid).and_call_original
+
+        result = described_class.return_summoner_name_by_puuid(puuid)
+
+        expect(result).to eq  nil
+      end
     end
   end
 
   describe '.search_for_player_from_history' do
-    let(:match_id) { 'BR1_2404338530' }
+    context 'when match id is valid' do
+      let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
 
-    it 'returns array with summoner names from match ' do
-      players_nicknames = ['summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner']
-      allow(described_class).to receive(:search_for_player_from_history).with(match_id).and_return(players_nicknames)
+      it 'returns array with summoner names from match ' do
+        players_nicknames = ['summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner','summoner']
+        allow(described_class).to receive(:search_for_player_from_history).with(puuid).and_return(players_nicknames)
 
-      response = described_class.search_for_player_from_history(match_id)
+        response = described_class.search_for_player_from_history(puuid)
 
-      expect(response).to eq players_nicknames
+        expect(response).to eq players_nicknames
+      end
+    end
+
+    context 'when match id is not valid' do
+      let(:puuid) { '123qwer456asd789' }
+
+      it 'returns array with summoner names from match ' do
+        allow(described_class).to receive(:search_for_player_from_history).with(puuid).and_call_original
+
+        expect{ described_class.search_for_player_from_history(puuid) }.to raise_error URI::InvalidURIError
+      end
     end
   end
 end
