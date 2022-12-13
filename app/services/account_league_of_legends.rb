@@ -33,8 +33,8 @@ class AccountLeagueOfLegends
     unless puuid.blank?
       id_matches = return_match_history(puuid)
 
-      id_matches.map { |match_id| return_match_info(match_id) }.map do |summoners|
-        summoners.map do |summoner|
+      id_matches.map! { |match_id| return_match_info(match_id) }.map! do |summoners|
+        summoners.map! do |summoner|
           return_summoner_name_by_puuid(summoner) 
         end
       end

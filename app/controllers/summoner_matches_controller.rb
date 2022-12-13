@@ -1,7 +1,7 @@
 class SummonerMatchesController < ApplicationController
   def index
-    @account_info = AccountLeagueOfLegends.return_info(params['nickname'])
-
+    @account_info = EncryptAndDecrypt.decrypt_summoner_info(params[:summoner_info])
+    
     if @account_info.nil?
       flash.now[:alert] = 'Você deve voltar para o ínicio'
       render 'index'
