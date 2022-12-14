@@ -37,8 +37,12 @@ class AccountLeagueOfLegends
         summoners.map! do |summoner|
           summoner_info = return_summoner_info_by_puuid(summoner)
           summoner_rank = return_rank(summoner_info['id'])
-
-          "#{summoner_info['name']} - Level: #{summoner_info['summonerLevel']}"
+          
+          if summoner_rank.present?
+            "#{summoner_info['name']} - #{summoner_rank[0]['tier'] }"
+          else
+            "#{summoner_info['name']} - UNRANKED"
+          end    
         end
       end
     end
