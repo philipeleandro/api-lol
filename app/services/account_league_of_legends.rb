@@ -23,9 +23,9 @@ class AccountLeagueOfLegends
     end
   end
 
-  def self.return_summoner_name_by_puuid(puuid)
+  def self.return_summoner_info_by_puuid(puuid)
     unless puuid.blank?
-      ConvertToJson.body_info(RiotRequest.summoner_info_by_puuid(puuid).body)['name']
+      ConvertToJson.body_info(RiotRequest.summoner_info_by_puuid(puuid).body)
     end
   end
 
@@ -35,7 +35,10 @@ class AccountLeagueOfLegends
 
       id_matches.map! { |match_id| return_match_info(match_id) }.map! do |summoners|
         summoners.map! do |summoner|
-          return_summoner_name_by_puuid(summoner) 
+          summoner_info = return_summoner_info_by_puuid(summoner)
+          summoner_rank = return_rank(summoner_info['id'])
+
+          "#{summoner_info['name']} - Level: #{summoner_info['summonerLevel']}"
         end
       end
     end

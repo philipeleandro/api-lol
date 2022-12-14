@@ -81,14 +81,14 @@ describe AccountLeagueOfLegends do
     end
   end
 
-  describe '.return_summoner_name_by_puuid' do
+  describe '.return_summoner_info_by_puuid' do
     context 'when puuid is valid' do
       let(:puuid) { 'v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg' }
 
       it 'returns summuner name' do
-        allow(described_class).to receive(:return_summoner_name_by_puuid).with(puuid).and_call_original
+        allow(described_class).to receive(:return_summoner_info_by_puuid).with(puuid).and_call_original
 
-        response = described_class.return_summoner_name_by_puuid(puuid)
+        response = described_class.return_summoner_info_by_puuid(puuid)['name']
 
         expect(response).to eq 'BlackHoot'
       end
@@ -97,10 +97,10 @@ describe AccountLeagueOfLegends do
     context 'when puuid is not valid' do
       let(:puuid) { '123456789qwerty' }
 
-      it 'returns summuner name' do
-        allow(described_class).to receive(:return_summoner_name_by_puuid).with(puuid).and_call_original
+      it 'does not returns summuner name' do
+        allow(described_class).to receive(:return_summoner_info_by_puuid).with(puuid).and_call_original
 
-        result = described_class.return_summoner_name_by_puuid(puuid)
+        result = described_class.return_summoner_info_by_puuid(puuid)['name']
 
         expect(result).to eq  nil
       end
@@ -127,7 +127,7 @@ describe AccountLeagueOfLegends do
       it 'returns array with summoner names from match ' do
         allow(described_class).to receive(:search_for_player_from_history).with(puuid).and_call_original
 
-        expect{ described_class.search_for_player_from_history(puuid) }.to raise_error URI::InvalidURIError
+        expect{ described_class.search_for_player_from_history(puuid) }.to raise_error NoMethodError
       end
     end
   end
