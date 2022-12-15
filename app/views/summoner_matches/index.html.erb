@@ -20,7 +20,7 @@
         </tr>
         <% @history_and_players.each do |match| %>
           <tr>
-            <td><%= match %></td>
+            <td>Team 1: <%= match[0..4].join(' / ')%><br>Team 2: <%= match[5..9].join('/ ')%></td><br>
           </tr>
         <% end %>
       </table>
