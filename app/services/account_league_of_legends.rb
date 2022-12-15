@@ -36,13 +36,8 @@ class AccountLeagueOfLegends
       id_matches.map! { |match_id| return_match_info(match_id) }.map! do |summoners|
         summoners.map! do |summoner|
           summoner_info = return_summoner_info_by_puuid(summoner)
-          summoner_rank = return_rank(summoner_info['id'])
-          
-          if summoner_rank.present?
-            "#{summoner_info['name']} - #{summoner_rank[0]['tier'] }"
-          else
-            "#{summoner_info['name']} - UNRANKED"
-          end    
+
+          "#{summoner_info['name']} - Level:  #{summoner_info['summonerLevel']}"
         end
       end
     end
