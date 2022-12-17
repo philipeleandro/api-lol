@@ -37,7 +37,7 @@ class AccountLeagueOfLegends
         summoners.map! do |summoner|
           summoner_info = return_summoner_info_by_puuid(summoner)
 
-          "#{summoner_info['name']} - Level:  #{summoner_info['summonerLevel']}"
+          [summoner_info['name'], summoner_info['summonerLevel']]
         end
       end
     end
