@@ -9,4 +9,8 @@ class SummonerMatchesController < ApplicationController
       @history_and_players = AccountLeagueOfLegends.search_for_player_from_history(@account_info['puuid'])
     end
   end
+
+  def show
+    redirect_to controller: 'home', action: 'welcome', params: { search: params[:search] }
+  end
 end
