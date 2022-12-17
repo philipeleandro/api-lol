@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'home#welcome'
-  get 'summoner_matches', to: 'summoner_matches#index'
+  resources :summoner_matches, only: [:index]
+  get 'summoner_account', to: 'summoner_matches#show'
 end
