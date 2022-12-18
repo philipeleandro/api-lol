@@ -72,4 +72,5 @@ end
 
 group :test do
   gem "vcr"
+  gem 'capybara-screenshot'
 end
