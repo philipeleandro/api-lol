@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/1233456789798abcdefg?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:08:00 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 2:1,4:120
+      x-method-rate-limit:
+      - 100:60
+      x-method-rate-limit-count:
+      - 2:60
+      x-riot-edge-trace-id:
+      - 7eb30959-b2af-4a0c-ae11-0ce2defe1829
+    body:
+      encoding: UTF-8
+      string: '{"status":{"message":"Bad Request - Exception decrypting 1233456789798abcdefg","status_code":400}}'
+  recorded_at: Sun, 18 Dec 2022 12:07:59 GMT
+recorded_with: VCR 6.1.0

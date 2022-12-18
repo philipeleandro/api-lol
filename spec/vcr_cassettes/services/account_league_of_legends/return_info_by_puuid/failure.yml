@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/123456789qwerty?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:08:48 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 2:1,6:120
+      x-method-rate-limit:
+      - 1300:60
+      x-method-rate-limit-count:
+      - 2:60
+      x-riot-edge-trace-id:
+      - 98bac1da-e8ac-4e25-b3dc-6d6e4a3ba97e
+    body:
+      encoding: UTF-8
+      string: '{"status":{"message":"Bad Request - Exception decrypting 123456789qwerty","status_code":400}}'
+  recorded_at: Sun, 18 Dec 2022 12:08:48 GMT
+recorded_with: VCR 6.1.0

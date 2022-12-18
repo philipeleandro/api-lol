@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Lyord?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:07:01 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 1:1,1:120
+      x-method-rate-limit:
+      - 1300:60
+      x-method-rate-limit-count:
+      - 1:60
+      x-riot-edge-trace-id:
+      - dec5da87-910c-4f2c-901a-275f07e745f8
+      content-encoding:
+      - gzip
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - GET, PUT, DELETE, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
+      access-control-expose-headers:
+      - Content-Length,Content-Range
+    body:
+      encoding: UTF-8
+      string: '{"id":"AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA","accountId":"0igBvbpOrPM8g-yeV-PzxJY7SSdOqaz7mK4j5snJ8sw6GNA","puuid":"dsA2iCLloiNQ631v3cIa7hynySmFwJ_HFo2NRdcDrH45MR8qKRS1B4LnteBDhhAwaIOygYdlz4uV6A","name":"Lyord","profileIconId":3176,"revisionDate":1671059670000,"summonerLevel":639}'
+  recorded_at: Sun, 18 Dec 2022 12:07:01 GMT
+recorded_with: VCR 6.1.0

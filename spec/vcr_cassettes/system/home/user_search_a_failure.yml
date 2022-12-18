@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-name/Testing%20for%20application?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:18:16 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 1:1,1:120
+      x-method-rate-limit:
+      - 1300:60
+      x-method-rate-limit-count:
+      - 1:60
+      x-riot-edge-trace-id:
+      - 4512428d-95c5-4c6e-9b2b-ec3a981b070b
+      content-encoding:
+      - gzip
+    body:
+      encoding: UTF-8
+      string: '{"status":{"message":"Data not found - summoner not found","status_code":404}}'
+  recorded_at: Sun, 18 Dec 2022 12:18:16 GMT
+recorded_with: VCR 6.1.0

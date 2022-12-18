@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/league/v4/entries/by-summoner/AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:07:59 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 1:1,3:120
+      x-method-rate-limit:
+      - 100:60
+      x-method-rate-limit-count:
+      - 1:60
+      x-riot-edge-trace-id:
+      - f9c2fd6e-f75d-4e32-a57a-9f4dbf5ac8f0
+      content-encoding:
+      - gzip
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - GET, PUT, DELETE, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
+      access-control-expose-headers:
+      - Content-Length,Content-Range
+    body:
+      encoding: UTF-8
+      string: '[{"leagueId":"25116b4b-e7ee-4bf1-a424-6e69234291fb","queueType":"RANKED_FLEX_SR","tier":"GOLD","rank":"IV","summonerId":"AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA","summonerName":"Lyord","leaguePoints":53,"wins":18,"losses":22,"veteran":false,"inactive":false,"freshBlood":false,"hotStreak":false},{"leagueId":"b86a8350-95d6-3520-85f9-fd45e7a18440","queueType":"RANKED_SOLO_5x5","tier":"MASTER","rank":"I","summonerId":"AsH5zLUcK6wNDoIzDe_3dhS-y_462N7K0wnK64-i4NMwGA","summonerName":"Lyord","leaguePoints":10,"wins":386,"losses":380,"veteran":false,"inactive":false,"freshBlood":false,"hotStreak":false}]'
+  recorded_at: Sun, 18 Dec 2022 12:07:58 GMT
+recorded_with: VCR 6.1.0

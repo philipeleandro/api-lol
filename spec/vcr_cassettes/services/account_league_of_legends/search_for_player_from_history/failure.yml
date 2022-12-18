@@ -1,0 +1,39 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://americas.api.riotgames.com/lol/match/v5/matches/by-puuid/123qwer456asd789/ids?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134&count=5&start=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:08:49 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 1:1,2:120
+      x-method-rate-limit:
+      - '500:10'
+      x-method-rate-limit-count:
+      - '1:10'
+      x-riot-edge-trace-id:
+      - b2410f87-dce0-4155-90b5-5c8207c83603
+    body:
+      encoding: UTF-8
+      string: '{"status":{"message":"Bad Request - Exception decrypting 123qwer456asd789","status_code":400}}'
+  recorded_at: Sun, 18 Dec 2022 12:08:49 GMT
+recorded_with: VCR 6.1.0

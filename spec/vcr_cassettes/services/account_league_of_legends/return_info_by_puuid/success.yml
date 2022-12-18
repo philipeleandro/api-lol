@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg?api_key=RGAPI-a909dde2-524d-46f6-9b5e-02c852eb5134
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.7.1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Sun, 18 Dec 2022 12:08:47 GMT
+      content-type:
+      - application/json;charset=utf-8
+      transfer-encoding:
+      - chunked
+      connection:
+      - keep-alive
+      vary:
+      - Accept-Encoding
+      x-app-rate-limit:
+      - 20:1,100:120
+      x-app-rate-limit-count:
+      - 1:1,5:120
+      x-method-rate-limit:
+      - 1300:60
+      x-method-rate-limit-count:
+      - 1:60
+      x-riot-edge-trace-id:
+      - 1b636a08-008a-4787-9d40-cc1d354138e6
+      content-encoding:
+      - gzip
+      access-control-allow-origin:
+      - "*"
+      access-control-allow-methods:
+      - GET, PUT, DELETE, POST, OPTIONS
+      access-control-allow-headers:
+      - DNT,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
+      access-control-expose-headers:
+      - Content-Length,Content-Range
+    body:
+      encoding: UTF-8
+      string: '{"id":"8ua41itV_jyLa1zstBn_osYWVaQZVp17jcBwEXhVNuEXtw","accountId":"5JCafSc3L249h_kgwPj0pH6kLnPpKbrl-SFb1I4Z-w90ArY","puuid":"v2jpHm5Vm2EhGiQT_TwtHxiiQSc7sa_WiHb6nXjFaqXtqDx0ZObPsFiI_0k3qd5wCFRmEi9rUvMbeg","name":"BlackHoot","profileIconId":4422,"revisionDate":1637789525000,"summonerLevel":81}'
+  recorded_at: Sun, 18 Dec 2022 12:08:47 GMT
+recorded_with: VCR 6.1.0
