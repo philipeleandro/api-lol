@@ -46,6 +46,10 @@ gem 'faraday'
 
 gem 'simplecov', require: false, group: :test
 
+gem 'bootstrap', '~> 5.2.2'
+
+gem 'jquery-rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
