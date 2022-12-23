@@ -3,8 +3,6 @@ class HomeController < ApplicationController
 
   def welcome
     if params[:search].present?
-      params[:search] = params[:search].join('')
-
       @account_info = AccountLeagueOfLegends.return_info(params[:search])
       
       if @account_info['id'].present?
@@ -28,6 +26,8 @@ class HomeController < ApplicationController
            params[:search][index] = '%' + "%02X" % [ char.ord ]
         end
       end
+      
+      params[:search] = params[:search].join('')
     end
   end
 end
