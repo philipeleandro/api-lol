@@ -1,4 +1,11 @@
-<%= form_tag(root_path, method: :get) do %>
-  <%= text_field_tag(:search, params[:search]) %>
-  <%= submit_tag ('Search') %>
-<% end %>
+<body class="body_home">
+  <div class="logo_image">  
+    <%= image_tag ("braum-logo.png") %>
+  <div>  
+  <div class="search_bar">
+    <%= form_tag(root_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ('Search') %>
+    <% end %>
+  </div>
+</body> 
