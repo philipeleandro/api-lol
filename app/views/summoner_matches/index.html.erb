@@ -3,9 +3,19 @@
     <tr>
       <td>Nickname: <%= @account_info['name'] %></td><br>
       <td>Level: <%= @account_info['summonerLevel'] %></td><br>
-      <% unless @rank.empty? %>
-        <td>Soloq/Duo Rank: <%= @rank[1]['tier'] %> <%= @rank[1]['rank'] %> - <%= @rank[1]['leaguePoints'] %></td><br>
-        <td>Flex Rank: <%= @rank[0]['tier'] %> <%= @rank[0]['rank'] %> - <%= @rank[0]['leaguePoints'] %></td>
+      <% rank = @rank.to_s %>
+      <% if rank.include?('RANKED_SOLO_5x5') && rank.include?('RANKED_FLEX_SR') %>
+        <td>Soloq/Duo Rank: <%= @rank[0]['tier'] %> <%= @rank[0]['rank'] %> - <%= @rank[0]['leaguePoints'] %></td><br>
+        <td>Flex Rank: <%= @rank[1]['tier'] %> <%= @rank[1]['rank'] %> - <%= @rank[1]['leaguePoints'] %></td>
+      <% elsif rank.include?('RANKED_SOLO_5x5') && rank.exclude?('RANKED_FLEX_SR') %>
+	      <td>Soloq/Duo Rank: <%= @rank[0]['tier'] %> <%= @rank[0]['rank'] %> - <%= @rank[0]['leaguePoints'] %></td><br>
+        <td>Flex Rank: UNRANKED %></td>
+      <% elsif rank.exclude?('RANKED_SOLO_5x5') && rank.include?('RANKED_FLEX_SR') %>
+	      <td>Soloq/Duo Rank: UNRANKED </td><br>
+        <td>Flex Rank:  <%= @rank[0]['tier'] %> <%= @rank[0]['rank'] %> - <%= @rank[0]['leaguePoints'] %></td>
+      <% elsif @rank.empty? %>
+        <td>Soloq/Duo Rank: UNRANKED</td><br>
+        <td>Flex Rank: UNRANKED</td>
       <% end %>
       <br>
       <h3> Histórico de Partida </h3>
@@ -28,6 +38,5 @@
       <% end %>
     </tr>
   <% end %>
-<% else %>
-  <%= link_to 'Voltar para o ínicio', root_path %>
 <% end %>
+<%= link_to 'Voltar para o ínicio', root_path %>
