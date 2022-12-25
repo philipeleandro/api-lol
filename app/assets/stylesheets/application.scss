@@ -16,15 +16,29 @@
 @import "bootstrap";
 
 .search_bar {
+  padding-bottom: 20vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 35vh;
 }
 
 .body_home {
+  width: 100%;
   background-color: #747DFA;
+  margin: 0 auto;
 }
 
+.logo_image { 
+  padding-top: 10vh;
+}
+
+.title_home { 
+  padding-top: 10vh;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  font-size: 4.0em;
+}

@@ -1,7 +1,10 @@
 <body class="body_home">
+  <div class="title_home">  
+    PH.GG
+  </div> 
   <div class="logo_image">  
-    <%= image_tag ("braum-logo.png") %>
-  <div>  
+    <%= image_tag("braum-logo.png", class: 'd-block mx-auto', width: 400) %>
+  </div>  
   <div class="search_bar">
     <%= form_tag(root_path, method: :get) do %>
       <%= text_field_tag(:search, params[:search]) %>
