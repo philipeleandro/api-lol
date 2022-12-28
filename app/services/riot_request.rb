@@ -18,4 +18,8 @@ class RiotRequest
   def self.summoner_info_by_puuid(puuid)
     Faraday.get("https://br1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/#{puuid}?api_key=#{ENV['API_LOL']}")
   end
+
+  def self.champions_name
+    Faraday.get("https://ddragon.leagueoflegends.com/cdn/6.24.1/data/pt_BR/champion.json")
+  end
 end
