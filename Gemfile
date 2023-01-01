@@ -77,4 +77,5 @@ end
 group :test do
   gem "vcr"
   gem 'capybara-screenshot'
+  gem 'shoulda-matchers', '~> 5.0'
 end
