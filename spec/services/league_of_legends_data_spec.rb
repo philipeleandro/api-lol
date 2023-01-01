@@ -4,14 +4,13 @@ describe LeagueOfLegendsData do
   describe '.name_champions' do
     it 'returns array with champions name' do
       VCR.use_cassette('services/league_of_legends_data/name_champions/success') do
-        allow(described_class).to receive(:name_champions).and_return(['Fizz','Aatrox','Alistar'])
+        allow(described_class).to receive(:name_champions).and_call_original
 
         result = described_class.name_champions
         
         expect(result).to be_an(Array)
-        expect(result.first).to eq 'Fizz'
-        expect(result.last).to eq 'Alistar'
-        expect(result.count).to eq 3
+        expect(result).to include 'Alistar'
+        expect(result).to include 'Zyra'
       end
     end
   end
@@ -25,7 +24,7 @@ describe LeagueOfLegendsData do
 
         expect(result).to be_a(Hash)
         expect(result['name']).to eq 'Alistar'
-        expect(result.keys).to include 'Alistar', 'image', 'spells'
+        expect(result.keys).to include 'key', 'name', 'image', 'spells'
       end
     end
   end
