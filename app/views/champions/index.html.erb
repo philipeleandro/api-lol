@@ -1,1 +1,8 @@
-Champions
+<h3>Lista de Campeões</h3>
+<ul>
+  <% @champions.each do |champion| %>
+    <li>
+      <%= champion.name %>
+    </li>
+  <% end %>
+</ul>
