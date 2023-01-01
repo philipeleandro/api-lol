@@ -9,4 +9,6 @@ class Champion < ApplicationRecord
   serialize :tags, Array
   serialize :spells, Array
   serialize :recommended, Array
+
+  validates :id_riot, :key, :name, :title, :image, :skins, :lore, :blurb, :allytips, :enemytips, :tags, :partype, :info, :stats, :spells, :passive, presence: true
 end
