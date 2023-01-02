@@ -6,7 +6,7 @@ describe 'User search a profile' do
       VCR.use_cassette('system/summoner_match/user_view_a_summoner_profile_in_history_success') do
         visit root_path
         fill_in 'search', with: 'Lyord'
-        click_on 'Search'
+        click_on 'Buscar'
         VCR.use_cassette('system/summoner_match/user_click_a_summoner_profile_in_history_successs') do
           first(:link, 'Lyord').click
 

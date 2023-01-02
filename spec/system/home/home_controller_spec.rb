@@ -6,7 +6,7 @@ describe 'User visits home' do
       VCR.use_cassette('system/home/user_search_a_summoner_success') do
         visit root_path
         fill_in 'search', with: 'Lyord'
-        click_on 'Search'
+        click_on 'Buscar'
 
         expect(page).to have_content 'Nickname'
         expect(page).to have_content 'Soloq/Duo Rank'
@@ -20,7 +20,7 @@ describe 'User visits home' do
       VCR.use_cassette('system/home/user_search_a_failure') do
         visit root_path
         fill_in 'search', with: 'Testing for application'
-        click_on 'Search'
+        click_on 'Buscar'
 
         expect(page).to have_content 'Invocador não encontrado!'
         expect(current_path).not_to eq summoner_matches_path
