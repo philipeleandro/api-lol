@@ -20,7 +20,7 @@ class RiotRequest
   end
 
   def self.champions_name
-    Faraday.get("https://ddragon.leagueoflegends.com/cdn/6.24.1/data/pt_BR/champion.json")
+    Faraday.get("https://ddragon.leagueoflegends.com/cdn/12.23.1/data/pt_BR/champion.json")
   end
 
   def self.champion_info(name)
