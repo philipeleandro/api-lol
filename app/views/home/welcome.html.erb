@@ -5,10 +5,17 @@
   <div class="logo_image">  
     <%= image_tag("braum-logo.png", class: 'd-block mx-auto', width: 400) %>
   </div>  
-  <div class="search_bar">
-    <%= form_tag(root_path, method: :get) do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag ('Search') %>
-    <% end %>
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-8">
+        <div class="search">
+          <i class="fa fa-search"></i>
+          <%= form_tag(root_path, method: :get) do %>
+            <%= text_field_tag(:search, params[:search], type: 'text', class:'form-control') %>
+            <%= button_tag('Buscar', type: "submit", class: 'btn btn-outline-primary') %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </body> 
