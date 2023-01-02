@@ -15,16 +15,6 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 
-.search_bar {
-  padding-bottom: 20vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 35vh;
-}
-
 .body_home {
   width: 100%;
   background-color: #747DFA;
@@ -36,7 +26,7 @@
 }
 
 .title_home { 
-  padding-top: 6vh;
+  padding-top: 8vh;
   text-align: center;
   font-weight: bold;
   color: white;
@@ -49,4 +39,69 @@
 
 .form-control-borderless {
   border: none;
+}
+
+.search{
+  position: relative;
+  width: 600px;
+  top: 8vh;
+  left: 15vh;
+  box-shadow: 0 0 40px rgba(51, 51, 51, .1);
+}
+
+.search input{
+  height: 40px;
+  text-indent: 25px;
+  border: 2px solid #d6d4d4;
+}
+
+
+.search input:focus{
+  box-shadow: none;
+  border: 2px solid blue;
+}
+
+.search .fa-search{
+  position: absolute;
+  top: 20px;
+  left: 16px;
+}
+
+.search button{ 
+  color: white;
+  position: absolute;
+  padding: 0px;
+  top: 5px;
+  right: 5px;
+  height: 30px;
+  width: 110px;
+  background: rgb(67, 67, 252);
+}
+
+.card {
+  margin: 0 auto;
+  float: none;
+  margin-bottom: 10px;
+  height: 120px;
+  width: 120px;
+  background-color: transparent;
+}
+
+.product-title {
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  padding-bottom: 6vh;
+}
+
+.title-champions { 
+  padding-top: 6vh;
+  padding-bottom: 6vh;
+  font-weight: bold;
+  color: white;
+  font-size: 1.0em;
+}
+
+.image {
+  object-fit: fill;
 }
