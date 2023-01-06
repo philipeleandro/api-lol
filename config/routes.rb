@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   root 'home#welcome'
   resources :summoner_matches, only: [:index]
   get 'summoner_account', to: 'summoner_matches#show'
-  resources :champions, only: [:index]
+  resources :champions, only: [:index, :show]
 end
