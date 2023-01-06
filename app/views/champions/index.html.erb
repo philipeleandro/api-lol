@@ -29,9 +29,9 @@
                       <div class="part-2">
                         <h3 class="product-title">
                           <% if index == 0 %>
-                            <%= champion.name %>
+                            <%= link_to champion.name, champion_path(champion.id) %>
                           <% else %>
-                            <%= @champions[index*4].name %>
+                            <%= link_to @champions[index*4].name, champion_path(@champions[index*4].id)  %>
                           <% end %>
                         </h3>
                       </div>
@@ -59,9 +59,9 @@
                       <div class="part-2">
                         <h3 class="product-title">
                           <% if index == 0 %>
-                            <%= champion.name %>
+                            <%= link_to champion.name, champion_path(champion.id) %>
                           <% else %>
-                            <%= @champions[1..][index*4].name %> 
+                            <%= link_to @champions[1..][index*4].name, champion_path(@champions[1..][index*4].id)  %> 
                           <% end %>
                         </h3>
                       </div>
@@ -89,9 +89,9 @@
                       <div class="part-2">
                         <h3 class="product-title">
                           <% if index == 0 %>
-                            <%= champion.name %>
+                            <%= link_to champion.name, champion_path(champion.id) %>
                           <% else %>
-                            <%= @champions[2..][index*4].name %> 
+                            <%= link_to @champions[2..][index*4].name, champion_path(@champions[2..][index*4].id) %> 
                           <% end %>
                         </h3>
                       </div>
@@ -119,9 +119,9 @@
                       <div class="part-2">
                         <h3 class="product-title">
                           <% if index == 0 %>
-                            <%= champion.name %>
+                            <%= link_to champion.name, champion_path(champion.id) %>
                           <% else %>
-                            <%= @champions[3..][index*4].name %> 
+                            <%= link_to @champions[3..][index*4].name, champion_path(@champions[3..][index*4].id) %> 
                           <% end %>
                         </h3>
                       </div>
