@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :champion do
-    id_riot { Faker::Games::HeroesOfTheStorm.hero }                                                 
+    id_riot { Faker::Games::HeroesOfTheStorm.unique.hero }                                                 
     key {"999"}                                                       
     name { Faker::Games::HeroesOfTheStorm.hero }                                                  
     title {"O brabo"}                                        
