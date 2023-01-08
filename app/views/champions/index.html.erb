@@ -1,136 +1,114 @@
 
 <body class="body_home">
   <section class="section-products">
-      <div class="container">
-          <div class="row justify-content-center text-center">
-              <div class="col-md-8 col-lg-6">
-                  <div class="title-champions">
-                      <h3>Lista de Campeões</h3>
-                  </div>
-              </div>
+    <div class="container">
+      <div class="row justify-content-center text-center">
+        <div class="col-md-8 col-lg-6">
+          <div class="title-champions">
+            <h3><b>Lista de Campeões</b></h3>
           </div>
-          <div class="row">
-              <!-- Single Product -->
-              <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-1" class="single-product">
-                  <% @champions.each_with_index do |champion,index| %>
-                    <% if @champions[index*4] != nil %>
-                      <div class="part-1">
-                        <% if index == 0 %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+1).image['full']}" %>
-                          </div>
-                        <% else %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+1).image['full']}" %>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="part-2">
-                        <h3 class="product-title">
-                          <% if index == 0 %>
-                              <%= link_to champion.name, champion_path(champion.id), class:"link-light" %>
-                          <% else %>
-                            <%= link_to @champions[index*4].name, champion_path(@champions[index*4].id), class:"link-light"  %>
-                          <% end %>
-                        </h3>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <br>
-               <!-- Single Product -->
-              <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-2" class="single-product">
-                  <% @champions[1..].each_with_index do |champion,index| %>
-                   <% if @champions[1..][index*4] != nil %>
-                      <div class="part-1">
-                        <% if index == 0 %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+2).image['full']}" %>
-                          </div>
-                        <% else %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+2).image['full']}" %>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="part-2">
-                        <h3 class="product-title">
-                          <% if index == 0 %>
-                            <%= link_to champion.name, champion_path(champion.id), class:"link-light" %>
-                          <% else %>
-                            <%= link_to @champions[1..][index*4].name, champion_path(@champions[1..][index*4].id), class:"link-light"  %> 
-                          <% end %>
-                        </h3>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <br>
-               <!-- Single Product -->
-              <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-3" class="single-product">
-                  <% @champions[2..].each_with_index do |champion,index| %>
-                   <% if @champions[2..][index*4] != nil %>
-                      <div class="part-1">
-                        <% if index == 0 %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+3).image['full']}" %>
-                          </div>
-                        <% else %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+3).image['full']}" %>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="part-2">
-                        <h3 class="product-title">
-                          <% if index == 0 %>
-                            <%= link_to champion.name, champion_path(champion.id), class:"link-light" %>
-                          <% else %>
-                            <%= link_to @champions[2..][index*4].name, champion_path(@champions[2..][index*4].id), class:"link-light" %> 
-                          <% end %>
-                        </h3>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <br>
-               <!-- Single Product -->
-              <div class="col-md-6 col-lg-4 col-xl-3">
-                <div id="product-4" class="single-product">
-                  <% @champions[3..].each_with_index do |champion,index| %>
-                   <% if @champions[3..][index*4] != nil %>
-                      <div class="part-1">
-                        <% if index == 0 %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+4).image['full']}", class: 'image' %>
-                          </div>
-                        <% else %>
-                          <div class="card">
-                            <%= image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+4).image['full']}", class: 'image' %>
-                          </div>
-                        <% end %>
-                      </div>
-                      <div class="part-2">
-                        <h3 class="product-title">
-                          <% if index == 0 %>
-                            <%= link_to champion.name, champion_path(champion.id), class:"link-light" %>
-                          <% else %>
-                            <%= link_to @champions[3..][index*4].name, champion_path(@champions[3..][index*4].id), class:"link-light" %> 
-                          <% end %>
-                        </h3>
-                      </div>
-                    <% end %>
-                  <% end %>
-                </div>
-              </div>
-              <br>
-          </div>
+        </div>
       </div>
-  </section>
-</body>
+      <div class="row">
+        <!-- Single Product -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="cards-list">
+              <% @champions.each_with_index do |champion,index| %>
+                <% if @champions[index*4] != nil %>
+                  <div class="card 1">
+                    <% if index == 0 %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+1).image['full']}"), champion_path(champion.id), class:"card_image" %>
+                    <% else %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+1).image['full']}"), champion_path(@champions[index*4].id), class:"card_image" %>
+                    <% end %>
+                    <div class="card_title title-white">
+                      <% if index == 0 %>
+                        <p><%= champion.name %></p>
+                      <% else %>
+                        <p><%= @champions[index*4].name %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <br>
+        <!-- Single Product -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="cards-list">
+              <% @champions[1..].each_with_index do |champion,index| %>
+                <% if @champions[1..][index*4] != nil %>
+                  <div class="card 1">
+                    <div class="card_image"> 
+                      <% if index == 0 %>
+                        <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+2).image['full']}"), champion_path(champion.id), class:"card_image" %>
+                      <% else %>
+                        <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+2).image['full']}"), champion_path(@champions[1..][index*4].id), class:"card_image" %>
+                      <% end %>
+                    </div>
+                    <div class="card_title title-white">
+                      <% if index == 0 %>
+                        <p><%= champion.name %></p>
+                      <% else %>
+                        <p><%= @champions[1..][index*4].name %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <br>
+        <!-- Single Product -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="cards-list">
+              <% @champions[2..].each_with_index do |champion,index| %>
+                <% if @champions[2..][index*4] != nil %>
+                  <div class="card 1">
+                    <% if index == 0 %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+3).image['full']}"), champion_path(champion.id), class:"card_image" %>
+                    <% else %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+3).image['full']}"), champion_path(@champions[2..][index*4].id), class:"card_image" %>
+                    <% end %>
+                    <div class="card_title title-white">
+                      <% if index == 0 %>
+                        <p><%= champion.name %></p>
+                      <% else %>
+                        <p><%= @champions[2..][index*4].name %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <br>
+        <!-- Single Product -->
+          <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="cards-list">
+              <% @champions[3..].each_with_index do |champion,index| %>
+                <% if @champions[3..][index*4] != nil %>
+                  <div class="card 1">
+                    <% if index == 0 %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find(index+4).image['full']}"), champion_path(champion.id), class:"card_image" %>
+                    <% else %>
+                      <%= link_to (image_tag "https://ddragon.leagueoflegends.com/cdn/12.23.1/img/champion/#{Champion.find((index*4)+4).image['full']}"), champion_path(@champions[3..][index*4].id), class:"card_image" %>
+                    <% end %>
+                    <div class="card_title title-white">
+                      <% if index == 0 %>
+                        <p><%= champion.name %></p>
+                      <% else %>
+                        <p><%= @champions[3..][index*4].name %></p>
+                      <% end %>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        <br>
+      </div> 
+  </div>
+</div>
+                    
