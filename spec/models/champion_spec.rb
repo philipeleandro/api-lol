@@ -17,5 +17,7 @@ RSpec.describe Champion, type: :model do
     it { should validate_presence_of(:stats) }
     it { should validate_presence_of(:spells) }
     it { should validate_presence_of(:passive) }
+    it { should validate_uniqueness_of(:name) }
+    it { should validate_uniqueness_of(:id_riot) }
   end
 end

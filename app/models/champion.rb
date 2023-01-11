@@ -11,4 +11,5 @@ class Champion < ApplicationRecord
   serialize :recommended, Array
 
   validates :id_riot, :key, :name, :title, :image, :skins, :lore, :blurb, :allytips, :enemytips, :tags, :partype, :info, :stats, :spells, :passive, presence: true
+  validates :name, :id_riot, uniqueness: true
 end
