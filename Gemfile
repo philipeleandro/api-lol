@@ -52,6 +52,8 @@ gem 'jquery-rails'
 
 gem 'faker'
 
+gem 'whenever', require: false
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
