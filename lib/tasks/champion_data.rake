@@ -5,8 +5,7 @@ namespace :champion_data do
     puts "--------------------------------------------"
     names.each do |name|
       champion = Champion.where(name: name)
-
-      if champion.nil?
+      if champion.empty?
         if name == 'FiddleSticks'
           champion_name = 'Fiddlesticks'
           champion_info = LeagueOfLegendsData.champion_data(champion_name)['data'][champion_name]
